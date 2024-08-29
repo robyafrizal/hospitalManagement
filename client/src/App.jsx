@@ -1,33 +1,25 @@
-// import './index.css'
 // import 'antd/dist/reset.css';
-// import {BrowserRouter, Routes, Route} from 'react-router-dom'
-// import HomePage from './pages/HomePage'
-// import Login from './pages/Login'
-// import Register from './pages/Register'
 
-// function App() {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <Routes>
-//           <Route path='/' element={<HomePage/>}/>
-//           <Route path='/login' element={<Login/>}/>
-//           <Route path='/register' element={<Register/>}/>
-//         </Routes>
-//       </BrowserRouter>
-//     </>
-//   )
-// }
-
-// export default App
-
-import React from 'react';
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './index.css'
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import About from "./pages/About";
+import Profile from "./pages/Profile";
+import Header from "./components/Header";
 
 export default function App() {
   return (
-    <div>
-      <h1 className='text-red-800'>App</h1>
-    </div>
-  )
+    <BrowserRouter>
+    <Header/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
