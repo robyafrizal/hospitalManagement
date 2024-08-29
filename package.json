@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "robyafrizal86",
   "license": "MIT",
-  "description": "Hospitam Management System with React and Node Js",
+  "description": "Hospital Management System with React and Node Js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
