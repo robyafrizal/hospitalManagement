@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
 const authRoute = require("./routes/authRoute");
+const not_found = require("./middlewares/notFound");
 
 //-----------RestObject-----------
 const app = express();
@@ -39,6 +40,19 @@ mongo();
 //-----------Routes-----------
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
+
+//-----------Middleware Not Found-----------
+app.use(not_found);
+//-----------Middleware errorHandler-----------
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 //-----------Port-----------
 const port = process.env.PORT || 8080;
