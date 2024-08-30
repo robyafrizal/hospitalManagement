@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const userRoute = require("./routes/userRoute");
 
 //-----------RestObject-----------
 const app = express();
@@ -14,7 +15,7 @@ dotenv.config();
 const mongo = async () => {
   await mongoose.connect(process.env.MONGO);
   try {
-    console.log("Connected to MongoDB".bgGreen);
+    console.log(colors.blue("Connected to MongoDB"));
   } catch (err) {
     console.log(err);
   }
@@ -35,11 +36,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //-----------Routes-----------
-app.get("/", (req, res) => {
-  res.status(200).send({
-    message: "Server Running",
-  });
-});
+app.use("/api/user", userRoute);
 
 //-----------Port-----------
 const port = process.env.PORT || 8080;
