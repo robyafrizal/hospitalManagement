@@ -4,9 +4,14 @@ const colors = require("colors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
+const authRoute = require("./routes/authRoute");
 
 //-----------RestObject-----------
 const app = express();
+
+//-----------Middleware-----------
+app.use(express.json());
+app.use(morgan("dev"));
 
 //-----------Config.ENV-----------
 dotenv.config();
@@ -31,12 +36,9 @@ mongo();
 //     console.log(err);
 //   });
 
-//-----------Middleware-----------
-app.use(express.json());
-app.use(morgan("dev"));
-
 //-----------Routes-----------
 app.use("/api/user", userRoute);
+app.use("/api/auth", authRoute);
 
 //-----------Port-----------
 const port = process.env.PORT || 8080;
