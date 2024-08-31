@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
 const authRoute = require("./routes/authRoute");
 const not_found = require("./middlewares/notFound");
+const cors = require("cors"); // Import the cors package
 
 //-----------RestObject-----------
 const app = express();
@@ -13,6 +14,13 @@ const app = express();
 //-----------Middleware-----------
 app.use(express.json());
 app.use(morgan("dev"));
+
+// Define the CORS options - CORS policy from Backend Side
+const corsOptions = {
+  credentials: true,
+  origin: ["http://localhost:8080", "http://localhost:5173"], // Whitelist the domains you want to allow
+};
+app.use(cors(corsOptions)); // Use the cors middleware with your options
 
 //-----------Config.ENV-----------
 dotenv.config();
