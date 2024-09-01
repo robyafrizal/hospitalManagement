@@ -1,3 +1,4 @@
 PORT = 
 NODE_MODE = 
 MONGO = 
+JWT_SECRET = 
