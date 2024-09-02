@@ -9,5 +9,5 @@
 - npm install -D tailwindcss postcss autoprefixer
 - npx tailwindcss init -p
 - setup tailwind config, index.css
-
-- npm i react-router-dom axios antd
+- npm i react-router-dom //axios antd
+- npm install @reduxjs/toolkit react-redux
