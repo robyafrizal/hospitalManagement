@@ -1,24 +1,27 @@
 // import 'antd/dist/reset.css';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './index.css'
+import "./index.css";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
     <BrowserRouter>
-    <Header/>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={PrivateRoute()}>
+          <Route path="/profile" element={Profile()} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
