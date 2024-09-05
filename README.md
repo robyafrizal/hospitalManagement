@@ -13,3 +13,4 @@
 - npm install @reduxjs/toolkit react-redux
 - npm i redux-persist //Save in local-storage
 - npm install firebase
+- set rules storage for image upload
