@@ -18,7 +18,7 @@ app.use(morgan("dev"));
 // Define the CORS options - CORS policy from Backend Side
 const corsOptions = {
   credentials: true,
-  origin: ["http://localhost:8080", "http://localhost:5173"], // Whitelist the domains you want to allow
+  origin: ["http://localhost:5173"], // Whitelist the domains you want to allow
 };
 app.use(cors(corsOptions)); // Use the cors middleware with your options
 
