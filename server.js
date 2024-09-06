@@ -6,13 +6,15 @@ const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
 const authRoute = require("./routes/authRoute");
 const not_found = require("./middlewares/notFound");
+const cookieParser = require("cookie-parser");
 const cors = require("cors"); // Import the cors package
 
 //-----------RestObject-----------
 const app = express();
+app.use(express.json());
 
 //-----------Middleware-----------
-app.use(express.json());
+app.use(cookieParser());
 app.use(morgan("dev"));
 
 // Define the CORS options - CORS policy from Backend Side
